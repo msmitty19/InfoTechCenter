@@ -1,7 +1,6 @@
 #Weather Branch
 import random
 
-
 weather_data = {
     "☀️ Sunny": {
         "chance": 25,
@@ -10,7 +9,8 @@ weather_data = {
             "Perfect driving conditions today.",
             "Visibility is excellent."
         ],
-        "speed": ["55–65 mph", "60–70 mph", "50–60 mph"]
+        "speed": ["55–65 mph", "60–70 mph", "50–60 mph"],
+        "alarm": "No alarm change needed."
     },
 
     "☁️ Cloudy": {
@@ -20,7 +20,8 @@ weather_data = {
             "Low sunlight detected.",
             "Mild conditions ahead."
         ],
-        "speed": ["50–60 mph", "45–55 mph", "55–60 mph"]
+        "speed": ["50–60 mph", "45–55 mph", "55–60 mph"],
+        "alarm": "Alarm time can stay the same."
     },
 
     "🌧️ Rain": {
@@ -30,7 +31,8 @@ weather_data = {
             "Reduced tire traction.",
             "Rainfall increasing."
         ],
-        "speed": ["40–50 mph", "35–45 mph", "45–50 mph"]
+        "speed": ["40–50 mph", "35–45 mph", "45–50 mph"],
+        "alarm": "Set your alarm 15 minutes earlier."
     },
 
     "⛈️ Thunderstorm": {
@@ -40,7 +42,8 @@ weather_data = {
             "Heavy rain and lightning.",
             "Road visibility is low."
         ],
-        "speed": ["25–35 mph", "30–40 mph", "20–30 mph"]
+        "speed": ["25–35 mph", "30–40 mph", "20–30 mph"],
+        "alarm": "Set your alarm 30 minutes earlier."
     },
 
     "❄️ Snow": {
@@ -50,7 +53,8 @@ weather_data = {
             "Icy conditions possible.",
             "Slippery roads ahead."
         ],
-        "speed": ["20–30 mph", "15–25 mph", "25–35 mph"]
+        "speed": ["20–30 mph", "15–25 mph", "25–35 mph"],
+        "alarm": "Set your alarm 45 minutes earlier."
     },
 
     "💨 Windy": {
@@ -60,7 +64,8 @@ weather_data = {
             "Vehicle stability reduced.",
             "Wind gusts incoming."
         ],
-        "speed": ["45–55 mph", "40–50 mph", "50–55 mph"]
+        "speed": ["45–55 mph", "40–50 mph", "50–55 mph"],
+        "alarm": "Consider waking up 10 minutes earlier."
     },
 
     "🌫️ Fog": {
@@ -70,10 +75,10 @@ weather_data = {
             "Fog density increasing.",
             "Use fog lights."
         ],
-        "speed": ["25–35 mph", "30–40 mph", "20–30 mph"]
+        "speed": ["25–35 mph", "30–40 mph", "20–30 mph"],
+        "alarm": "Set your alarm 20 minutes earlier."
     }
 }
-
 
 # Pick weather
 roll = random.randint(1, 100)
@@ -86,13 +91,14 @@ for weather, data in weather_data.items():
     current += data["chance"]
 
     if roll <= current:
-
         message = random.choice(data["messages"])
         speed = random.choice(data["speed"])
+        alarm = data["alarm"]
 
         print(f"Weather: {weather}")
         print(f"Assistant: {message}")
         print(f"Recommended Speed: {speed}")
+        print(f"Alarm Advice: {alarm}")
         print(f"System Roll: {roll}%")
 
         break
